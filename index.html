@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+  </head>
+
+  <body>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+    <a-scene>
+
+      <a-assets>
+        <video id="city" autoplay loop="true" src="videos/city.mp4"></video>
+        <img id="art" src="images/art.jpg">
+        <img id="koons" src="images/koons.jpg">
+        <img id="scream" src="images/scream.jpg">
+        <img id="frida" src="images/frida.jpg">
+        <img id="mutt" src="images/mutt.jpg">
+      </a-assets>
+
+      <a-videosphere src="#city"></a-videosphere>
+
+      <a-entity camera look-controls position="0 1.75 0">
+        <a-cursor color="red"></a-cursor>
+      </a-entity>
+
+      <a-entity id="ball" class="sphere"
+         geometry="primitive: sphere; radius: 0.25;"
+         material="src: #scream; color: grey;"
+         position="-0.4 1.75 -2"
+         event-set__1="_event: mouseenter; material.color: pink;"
+         event-set__2="_event: mouseleave; material.color: green;"></a-entity>
+
+      <a-entity id="box" class="sphere"
+           geometry="primitive: box; radius: 0.25;"
+           material="src: #art; color: grey;"
+           position="0 3.25 -2"></a-entity>
+
+      <a-entity id="box" class="sphere"
+           geometry="primitive: cylinder; radius: 0.1;"
+           material="src: #frida; color: grey;"
+           position="-2 2.25 -2"></a-entity>
+
+      <a-entity id="box" class="sphere"
+           geometry="primitive: cylinder; radius: 0.4;"
+           material="src: #koons; color: grey;"
+           position="2 2.25 -2"></a-entity>
+
+      <a-entity id="box" class="sphere"
+           geometry="primitive: plane; radius: 0.1;"
+           material="src: #mutt; color: grey;"
+           position="-3 3.25 -2"
+           event-set__1="_event: mouseenter; material.color: orange;"
+           event-set__2="_event: mouseleave; material.color: grey;"></a-entity>
+
+    </a-scene>
+
+
+  </body>
+</html>
